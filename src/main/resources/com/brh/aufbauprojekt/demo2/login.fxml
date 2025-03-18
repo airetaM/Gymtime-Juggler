@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.brh.aufbauprojekt.demo2.Controller">
+
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="42.0" prefWidth="221.0" text="Bitte loggen Sie sich ein" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="38.0" prefWidth="600.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="66.0" text="Name:">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="logName">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="38.0" prefWidth="600.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="66.0" text="Passwort:">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <PasswordField fx:id="logPW">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </PasswordField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="82.0" prefWidth="600.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onConfirmButtonClick" stylesheets="@style.css" text="Bestätigen" textAlignment="CENTER" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
+         <children>
+            <Line endX="100.0" startX="-100.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="59.0" prefWidth="600.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onNewProfileButtonClick" text="Neues Profil erstellen">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="25.0" />
+         </padding>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

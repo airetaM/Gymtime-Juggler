@@ -1,0 +1,14 @@
+
+
+
+.button {
+    -fx-text-fill: navy;
+    -fx-font-size: 14px;
+    -fx-background-image: url("bg2.jpg");
+    -fx-background-radius: 30px;
+}
+label. {
+    -fx-background-image: url("bg3.jpg");
+}
+
+
