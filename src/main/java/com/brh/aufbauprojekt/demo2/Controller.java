@@ -1,10 +1,7 @@
 package com.brh.aufbauprojekt.demo2;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -13,21 +10,9 @@ public class Controller {
     @FXML
     private TextField profileNameTF;
     @FXML
-    private TextField ageTF;
-    @FXML
-    private TextField sizeTF;
-    @FXML
-    private RadioButton maleToggle;
-    @FXML
-    private RadioButton femaleToggle;
-    @FXML
-    private RadioButton diverseToggle;
-    @FXML
     private TextField logName;
     @FXML
     private TextField logPW;
-    @FXML
-    private TextField weightTF;
     @FXML
     private TextField passwordTF;
     @FXML
@@ -38,7 +23,6 @@ public class Controller {
         String name = logName.getText();
         String pw = logPW.getText();
         boolean allLoginChecks = true;
-//        showInfoWindow("Info","Es sind noch keine Daten gespeichert im Log");
         if ( name.isEmpty() ) {
             showErrorWindow("Error", "Du hast keinen Profilnamen angegeben!");
             allLoginChecks = false;
@@ -48,8 +32,7 @@ public class Controller {
             allLoginChecks = false;
         }
         if ( allLoginChecks ) {
-            new confirmLogin();
-
+            new confirmLogin(name, pw);
         }
     }
     @FXML
@@ -61,10 +44,6 @@ public class Controller {
             throw new RuntimeException(e);
         }
     }
-//    public void showInfoWindow(String title, String message){
-//        Alert window = new Alert(Alert.AlertType.INFORMATION);
-//        showWindow(title, message, window);
-//    }
     public void showErrorWindow(String title, String message){
         Alert window = new Alert(Alert.AlertType.ERROR);
         showWindow(title, message, window);
@@ -79,72 +58,37 @@ public class Controller {
     @FXML
     protected void onNewProfileConfirmClick() {
         String profileName = profileNameTF.getText();
-        boolean male = maleToggle.isSelected();
-        boolean female = femaleToggle.isSelected();
-        boolean diverse = diverseToggle.isSelected();
-        String page = ageTF.getText();
-        String psize = sizeTF.getText();
-        String pweight = weightTF.getText();
-        String ppassword = passwordTF.getText();
-        String pcpassword = cpasswordTF.getText();
+        String newPW = passwordTF.getText();
+        String newConfirmPW = cpasswordTF.getText();
 
         boolean allNewProfileChecks = true;
         if (profileName.isEmpty()) {
-            showErrorWindow("Error", "Du hast keinen Profilnamen angegeben!");
+            showErrorWindow("Ungültige Eingabe", "Du hast keinen Profilnamen angegeben!");
             allNewProfileChecks = false;
         }
 
-        else if (ppassword.isEmpty()) {
-            showErrorWindow("Error", "Du hast kein Passwort eingegeben!");
+        else if (newPW.isEmpty()) {
+            showErrorWindow("Ungültige Eingabe", "Du hast kein Passwort eingegeben!");
             allNewProfileChecks = false;
         }
 
-        else if (pcpassword.isEmpty()) {
-            showErrorWindow("Error", "Du musst dein Passwort bestätigen!");
+        else if (newPW.length()<8) {
+            showErrorWindow("Ungültige Eingabe", "Dein Passwort muss mindestens 8 Zeichen haben!");
             allNewProfileChecks = false;
         }
 
-        try {
-            int age = Integer.parseInt(page);
-            if (age <= 0 || age > 120) {
-                throw new NumberFormatException();
-            }
-        } catch (NumberFormatException e) {
-            System.err.println("Error: " + e.getMessage());
-            showErrorWindow("Error", "Dein Alter ist ungültig");
+        else if (newConfirmPW.isEmpty()) {
+            showErrorWindow("Ungültige Eingabe", "Du musst dein Passwort bestätigen!");
             allNewProfileChecks = false;
         }
 
-        try {
-            int size = Integer.parseInt(psize);
-            if (size < 50 || size > 250) {
-                throw new NumberFormatException();
-            }
-        } catch (NumberFormatException e) {
-            System.err.println("Error: " + e.getMessage());
-            showErrorWindow("Error", "Deine größe ist ungültig");
-            allNewProfileChecks = false;
-        }
-
-        try {
-            int weight = Integer.parseInt(pweight);
-            if (weight < 10 || weight > 450) {
-                throw new NumberFormatException();
-            }
-        } catch (NumberFormatException e) {
-            System.err.println("Error: " + e.getMessage());
-            showErrorWindow("Error", "Dein Gewicht ist ungültig");
-            allNewProfileChecks = false;
-        }
-
-        if ( !male && !female && !diverse ) {
-            showErrorWindow("Error", "Du musst dein Geschlecht angeben!");
+        else if (!newPW.equals(newConfirmPW)) {
+            showErrorWindow("Ungültige Eingabe", "Deine Passwörter stimmen nicht überein!");
             allNewProfileChecks = false;
         }
 
     if (allNewProfileChecks) {
-        new newProfileModel( profileName, page, psize, pweight, maleToggle, femaleToggle, diverseToggle );
-        new newProfile();
+        new PasswordHasher.hashPassword(profileName, newPW);
     }
 
     }
