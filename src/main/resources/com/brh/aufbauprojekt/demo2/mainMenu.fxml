@@ -32,22 +32,13 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -88,11 +79,11 @@
         </Menu>
       </menus>
     </MenuBar>
-    <SplitPane dividerPositions="0.2505567928730512, 0.7505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <SplitPane dividerPositions="0.17850438047559447" focusTraversable="true" prefHeight="785.0" prefWidth="1570.0" VBox.vgrow="ALWAYS">
       <items>
-        <AnchorPane>
+        <AnchorPane prefHeight="750.0" prefWidth="182.0">
           <children>
-            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Master" textAlignment="CENTER" wrapText="false">
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Tools" textAlignment="CENTER" wrapText="false">
               <font>
                 <Font size="18.0" fx:id="x1" />
               </font>
@@ -100,22 +91,202 @@
                 <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
               </textFill>
             </Label>
+                  <DatePicker layoutX="14.0" layoutY="82.0" prefHeight="42.0" prefWidth="174.0" />
+                  <Button layoutX="49.0" layoutY="637.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="138.0" text="Trainingsplan erstellen" />
+                  <Button layoutX="49.0" layoutY="458.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="138.0" text="Woche speichern" />
+                  <Separator layoutX="18.0" layoutY="154.0" prefWidth="200.0" />
+                  <Separator layoutX="18.0" layoutY="570.0" prefHeight="16.0" prefWidth="200.0" />
+                  <Separator layoutX="18.0" layoutY="407.0" prefWidth="200.0" />
           </children>
         </AnchorPane>
-        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+        <ScrollPane prefHeight="816.0" prefWidth="1435.0">
           <content>
-            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0">
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="546.0" prefWidth="1177.0">
               <children>
-                <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="View" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                <Label alignment="TOP_CENTER" layoutX="499.0" layoutY="14.0" style="&#10;" text="Wochenplan" textAlignment="CENTER" textFill="$x2" wrapText="false">
+                           <font>
+                              <Font size="28.0" />
+                           </font></Label>
+                        <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="9.0" layoutY="67.0" prefHeight="660.0" prefWidth="1136.0" AnchorPane.bottomAnchor="-180.60000000000002">
+                          <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <TextArea fx:id="textBox1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextArea fx:id="textBox2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <TextArea fx:id="textBox3" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <TextArea fx:id="textBox4" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <TextArea fx:id="textBox5" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <TextArea fx:id="textBox6" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                              <TextArea fx:id="textBox7" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                              <TextArea fx:id="textBox8" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextArea fx:id="textBox9" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <TextArea fx:id="textBox10" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <TextArea fx:id="textBox11" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <TextArea fx:id="textBox12" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <TextArea fx:id="textBox13" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                              <TextArea fx:id="textBox14" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                              <TextArea fx:id="textBox15" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextArea fx:id="textBox16" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <TextArea fx:id="textBox17" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <TextArea fx:id="textBox18" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                              <TextArea fx:id="textBox19" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                              <TextArea fx:id="textBox20" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                              <TextArea fx:id="textBox21" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                              <TextArea fx:id="textBox22" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextArea fx:id="textBox23" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <TextArea fx:id="textBox24" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                              <TextArea fx:id="textBox25" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                              <TextArea fx:id="textBox26" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                              <TextArea fx:id="textBox27" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+                              <TextArea fx:id="textBox28" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                              <TextArea fx:id="textBox29" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <TextArea fx:id="textBox30" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <TextArea fx:id="textBox31" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                              <TextArea fx:id="textBox32" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                              <TextArea fx:id="textBox33" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                              <TextArea fx:id="textBox34" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                              <TextArea fx:id="textBox35" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+                              <TextArea fx:id="textBox36" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <TextArea fx:id="textBox37" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                              <TextArea fx:id="textBox38" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                              <TextArea fx:id="textBox39" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                              <TextArea fx:id="textBox40" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                              <TextArea fx:id="textBox41" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+                              <TextArea fx:id="textBox42" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="64.0" text="Uhrzeit" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="64.0" text="Montag" textAlignment="CENTER" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="74.0" text="Dienstag" textAlignment="CENTER" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="81.0" text="Mittwoch" textAlignment="CENTER" GridPane.columnIndex="3">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="90.0" text="Donnerstag" textAlignment="CENTER" GridPane.columnIndex="4">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="74.0" text="Freitag" textAlignment="CENTER" GridPane.columnIndex="5">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="83.0" text="Samstag" textAlignment="CENTER" textFill="RED" GridPane.columnIndex="6">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="81.0" text="Sonntag" textAlignment="CENTER" textFill="RED" GridPane.columnIndex="7">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="90.0" text="8-10 Uhr" textAlignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="91.0" text="10-12 Uhr" textAlignment="CENTER" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="84.0" text="12-14Uhr" textAlignment="CENTER" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="84.0" text="14-16Uhr" textAlignment="CENTER" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="81.0" text="16-18Uhr" textAlignment="CENTER" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="83.0" text="18-20Uhr" textAlignment="CENTER" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="106.0" text="Trainingsplan" textAlignment="CENTER" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" lineSpacing="5.0" prefHeight="100.0" prefWidth="130.0" textAlignment="CENTER" textFill="#005e5b" GridPane.columnIndex="6" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" lineSpacing="5.0" prefHeight="100.0" prefWidth="130.0" textAlignment="CENTER" textFill="#005e5b" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" lineSpacing="5.0" prefHeight="100.0" prefWidth="130.0" textAlignment="CENTER" textFill="#005e5b" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" lineSpacing="5.0" prefHeight="100.0" prefWidth="130.0" textAlignment="CENTER" textFill="#005e5b" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" lineSpacing="5.0" prefHeight="100.0" prefWidth="130.0" textAlignment="CENTER" textFill="#005e5b" GridPane.columnIndex="4" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" lineSpacing="5.0" prefHeight="100.0" prefWidth="130.0" textAlignment="CENTER" textFill="#005e5b" GridPane.columnIndex="5" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" lineSpacing="5.0" prefHeight="100.0" prefWidth="130.0" textAlignment="CENTER" textFill="#005e5b" GridPane.columnIndex="7" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
               </children>
             </AnchorPane>
           </content>
         </ScrollPane>
-        <AnchorPane>
-          <children>
-            <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-          </children>
-        </AnchorPane>
       </items>
     </SplitPane>
     <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
