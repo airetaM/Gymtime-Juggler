@@ -33,11 +33,12 @@ public class App extends Application {
         stage.getScene().setRoot(pane);
     }
 
-    public static void changeSceneToMainMenu(String fxml) throws IOException {
-        Parent pane = FXMLLoader.load(App.class.getResource(fxml));
-        stage.setTitle("Main Menu");
+    public static void changeSceneToMainMenu(String fxml, String name) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml));
+        Parent pane = fxmlLoader.load();
+        stage.setTitle(name + "'s Gymtime Juggler");
         stage.getScene().setRoot(pane);
-        stage.setMaximized(true); // fullscreen mode
+        stage.setMaximized(true); // Enable fullscreen mode
     }
 
     public static void main(String[] args) {

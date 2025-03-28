@@ -3,6 +3,7 @@ module com.brh.aufbauprojekt.demo2 {
     requires javafx.fxml;
     requires org.json;
     requires jbcrypt;
+    requires java.desktop;
 
 
     opens com.brh.aufbauprojekt.demo2 to javafx.fxml;

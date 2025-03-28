@@ -44,7 +44,7 @@ public class JSONHandler {
                 jsonArray.put(jsonObject);
                 fileWriter.write(jsonArray.toString(4)); // 4 ist die Einrückung
                 System.out.println("Neues Profil mit dem Namen: " + profileName + " wurde erstellt.");
-                    App.changeSceneToMainMenu("mainMenu.fxml");
+                    App.changeSceneToMainMenu("mainMenu.fxml", profileName);
             } catch (IOException e) {
                 e.printStackTrace();
             }

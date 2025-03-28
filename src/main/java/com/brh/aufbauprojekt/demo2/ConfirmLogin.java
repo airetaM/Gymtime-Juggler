@@ -2,9 +2,9 @@ package com.brh.aufbauprojekt.demo2;
 
 import javafx.scene.control.Alert;
 
-public class confirmLogin {
+public class ConfirmLogin {
 
-    public confirmLogin(String name, String pw) {
+    public ConfirmLogin(String name, String pw) {
         try {
             if (isLoginValid(name, pw)) {}
         } catch (Exception _) {}
@@ -15,7 +15,7 @@ public class confirmLogin {
         if (hashedPassword) {
             System.out.println("Profil " + name + " wird geladen.");
             try {
-                App.changeSceneToMainMenu("mainMenu.fxml");
+                App.changeSceneToMainMenu("mainMenu.fxml", name);
 
             } catch (Exception e) {
                 throw new RuntimeException(e);

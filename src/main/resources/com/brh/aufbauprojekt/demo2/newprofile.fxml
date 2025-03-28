@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.brh.aufbauprojekt.demo2.Controller">   <children>
+<VBox alignment="CENTER" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.brh.aufbauprojekt.demo2.LoginController">   <children>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
          <children>
             <Label alignment="CENTER" prefHeight="32.0" prefWidth="221.0" text="Neues Profil" textAlignment="CENTER">

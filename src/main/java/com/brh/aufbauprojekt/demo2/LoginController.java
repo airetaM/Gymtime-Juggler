@@ -6,7 +6,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class Controller {
+public class LoginController {
     @FXML
     private TextField profileNameTF;
     @FXML
@@ -32,7 +32,7 @@ public class Controller {
             allLoginChecks = false;
         }
         if ( allLoginChecks ) {
-            new confirmLogin(name, pw);
+            new ConfirmLogin(name, pw);
         }
     }
     @FXML
