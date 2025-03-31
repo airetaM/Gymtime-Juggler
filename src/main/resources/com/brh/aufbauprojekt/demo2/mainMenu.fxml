@@ -102,6 +102,16 @@
                         <Font size="26.0" />
                      </font>
                   </Button>
+                  <Label fx:id="clockID" contentDisplay="CENTER" layoutX="18.0" layoutY="178.0" prefHeight="27.0" prefWidth="112.0" textAlignment="CENTER">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="CENTER" layoutX="18.0" layoutY="157.0" prefHeight="27.0" prefWidth="112.0" text="Uhrzeit" textAlignment="CENTER">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
           </children>
         </AnchorPane>
         <ScrollPane prefHeight="816.0" prefWidth="1250.0">
@@ -176,9 +186,9 @@
                               <TextArea fx:id="textBox40" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
                               <TextArea fx:id="textBox41" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
                               <TextArea fx:id="textBox42" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="6" />
-                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="64.0" text="Uhrzeit" textAlignment="CENTER">
+                              <Label fx:id="kwField" alignment="CENTER" contentDisplay="CENTER" prefHeight="107.0" prefWidth="214.0" textAlignment="CENTER" textFill="#004a94">
                                  <font>
-                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                    <Font name="Comic Sans MS Bold Italic" size="30.0" />
                                  </font>
                               </Label>
                               <Label fx:id="dayID1" alignment="CENTER" contentDisplay="CENTER" prefHeight="145.0" prefWidth="264.0" text="Montag" textAlignment="CENTER" GridPane.columnIndex="1">
@@ -288,20 +298,14 @@
                               </Label>
                            </children>
                         </GridPane>
-
-                  <Label fx:id="kwField" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="16.0" prefWidth="200.0" textAlignment="CENTER">
-                      <font>
-                          <Font name="Comic Sans MS Bold Italic" size="16.0" />
-                      </font>
-                  </Label>
-                        <Label fx:id="yearField" contentDisplay="CENTER" layoutX="14.0" layoutY="40.0" prefHeight="27.0" prefWidth="174.0" textAlignment="CENTER">
+                        <Label fx:id="yearField" contentDisplay="CENTER" layoutX="14.0" layoutY="59.0" prefHeight="35.0" prefWidth="174.0" textAlignment="CENTER">
                            <font>
-                              <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                              <Font name="Comic Sans MS Bold Italic" size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="todayField" contentDisplay="CENTER" layoutX="14.0" layoutY="67.0" prefHeight="26.0" prefWidth="174.0" textAlignment="CENTER">
+                        <Label fx:id="todayField" contentDisplay="CENTER" layoutX="14.0" layoutY="33.0" prefHeight="34.0" prefWidth="174.0" textAlignment="CENTER">
                            <font>
-                              <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                              <Font name="Comic Sans MS Bold Italic" size="18.0" />
                            </font>
                         </Label>
                         <Button defaultButton="true" layoutX="1225.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="24.0" text="»" textAlignment="CENTER">
