@@ -6,7 +6,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.DatePicker;
 
 import java.time.LocalTime;
-import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.WeekFields;
 import java.time.LocalDate;
@@ -123,7 +122,9 @@ public class MainController {
     @FXML
     private Label yearField;
     @FXML
-    private Label todayField;
+    private Label monthField;
+    @FXML
+    private Label profileLabel;
 
     @FXML
     private LocalDate Now;
@@ -149,10 +150,12 @@ public class MainController {
     private Label dayID7;
     @FXML
     private Label clockID;
+
     @FXML
     public void initialize() {
         DatePicker.getEditor().setText(date.toString());
         confirmDateFromText();
+        startClock();
     }
 
     @FXML
@@ -162,10 +165,13 @@ public class MainController {
         LocalDate selectedDate = LocalDate.parse(dateText, formatter);
         DatePicker.setValue(selectedDate);
         updateLabels(selectedDate);
-        startClock();
     }
 
     private void updateLabels(LocalDate selectedDate) {
+
+        String profileName = CalendarModel.getProfileName();
+
+        profileLabel.setText(profileName);
         WeekFields weekFields = WeekFields.of(Locale.getDefault());
         int weekNumber = selectedDate.get(weekFields.weekOfWeekBasedYear());
         int day = selectedDate.get(weekFields.dayOfWeek());
@@ -175,51 +181,56 @@ public class MainController {
         yearField.setText("" + selectedDate.getYear());
         setStyles(day);
         setDayNumbers(selectedDate, day);
-        }
+    }
 
-        @FXML
-        protected void onSaveWeekClick () {
-            System.out.println("woche gespeichert");
-        }
-        @FXML
-        protected void onCreatePlanClick () {
-            System.out.println("plan erstellt");
-        }
+    @FXML
+    protected void onSaveWeekClick() {
+        System.out.println("woche gespeichert");
+    }
 
-        LocalDate date = LocalDate.now();
+    @FXML
+    protected void onCreatePlanClick() {
+        System.out.println("plan erstellt");
+    }
 
-        @FXML
-        protected void onEnteredDate () {
-            LocalDate selectedDate = DatePicker.getValue();
-            if (selectedDate != null) {
-                WeekFields weekFields = WeekFields.of(Locale.getDefault());
-                int weekNumber = selectedDate.get(weekFields.weekOfWeekBasedYear());
-                int day = selectedDate.get(weekFields.dayOfWeek());
-                int Month = selectedDate.getMonthValue();
-                System.out.println("Selected date: " + selectedDate + "\nWeek number: " + weekNumber);
-                kwField.setText("KW " + weekNumber);
-                updateMonth(Month);
-                yearField.setText("" + selectedDate.getYear());
+    LocalDate date = LocalDate.now();
+
+    @FXML
+    protected void onEnteredDate() {
+        LocalDate selectedDate = DatePicker.getValue();
+        if (selectedDate != null) {
+            WeekFields weekFields = WeekFields.of(Locale.getDefault());
+            int weekNumber = selectedDate.get(weekFields.weekOfWeekBasedYear());
+            int day = selectedDate.get(weekFields.dayOfWeek());
+            int Month = selectedDate.getMonthValue();
+
+            //todo: datemodel
+
+            System.out.println("Selected date: " + selectedDate + "\nWeek number: " + weekNumber);
+            kwField.setText("KW " + weekNumber);
+            updateMonth(Month);
+            yearField.setText("" + selectedDate.getYear());
 //                todayField.setText("Monat: " + selectedDate.getMonthValue() + " Tag: " + selectedDate.getDayOfMonth());
-                setDayNumbers(selectedDate, day);
-            }
+            setDayNumbers(selectedDate, day);
         }
-        private void setDayNumbers(LocalDate selectedDate, int day) {
-            Label[] dayNumbers = {dayNumber1, dayNumber2, dayNumber3, dayNumber4, dayNumber5, dayNumber6, dayNumber7};
-                while (day > 1) {
-                    dayNumbers[day - 1].setText(selectedDate.getDayOfMonth() + "");
-                    day--;
-                    selectedDate = selectedDate.minusDays(1);
-                }
+    }
 
-                while (day < 7) {
-                    dayNumbers[day - 1].setText(selectedDate.getDayOfMonth() + "");
-                    day++;
-                    selectedDate = selectedDate.plusDays(1);
-                }
-                dayNumbers[6].setText(selectedDate.getDayOfMonth() + "");
+    private void setDayNumbers(LocalDate selectedDate, int day) {
+        Label[] dayNumbers = {dayNumber1, dayNumber2, dayNumber3, dayNumber4, dayNumber5, dayNumber6, dayNumber7};
+        while (day > 1) {
+            dayNumbers[day - 1].setText(selectedDate.getDayOfMonth() + "");
+            day--;
+            selectedDate = selectedDate.minusDays(1);
+        }
 
-            }
+        while (day < 7) {
+            dayNumbers[day - 1].setText(selectedDate.getDayOfMonth() + "");
+            day++;
+            selectedDate = selectedDate.plusDays(1);
+        }
+        dayNumbers[6].setText(selectedDate.getDayOfMonth() + "");
+
+    }
 
     private void setStyles(int day) {
         String numberStyle = "-fx-font-size:22; -fx-text-fill: red; -fx-font-weight: bold; -fx-font-family: 'Comic Sans MS', sans-serif;";
@@ -240,40 +251,22 @@ public class MainController {
     }
 
     private void startClock() {
-     Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-        LocalTime currentTime = LocalTime.now();
-         clockID.setText(currentTime.format(timeFormatter));
-    }), new KeyFrame(Duration.seconds(1)));
-    clock.setCycleCount(Timeline.INDEFINITE);
-    clock.play();
-}
-private void updateMonth(int Month) {
-    if (Month == 1) {
-        todayField.setText("Januar");
-    } else if (Month == 2) {
-        todayField.setText("Februar");
-    } else if (Month == 3) {
-        todayField.setText("März");
-    } else if (Month == 4) {
-        todayField.setText("April");
-    } else if (Month == 5) {
-        todayField.setText("Mai");
-    } else if (Month == 6) {
-        todayField.setText("Juni");
-    } else if (Month == 7) {
-        todayField.setText("Juli");
-    } else if (Month == 8) {
-        todayField.setText("August");
-    } else if (Month == 9) {
-        todayField.setText("September");
-    } else if (Month == 10) {
-        todayField.setText("Oktober");
-    } else if (Month == 11) {
-        todayField.setText("November");
-    } else if (Month == 12) {
-        todayField.setText("Dezember");
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            LocalTime currentTime = LocalTime.now();
+            clockID.setText(currentTime.format(timeFormatter));
+        }), new KeyFrame(Duration.seconds(1)));
+        clock.setCycleCount(Timeline.INDEFINITE);
+        clock.play();
     }
-}
+
+    private void updateMonth(int Month) {
+        String[] Monthnames = {"Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"};
+        for (int i = 0; i < Monthnames.length; i++) {
+            if (Month == i + 1) {
+                monthField.setText(Monthnames[i]);
+            }
+        }
+    }
 }
 
 

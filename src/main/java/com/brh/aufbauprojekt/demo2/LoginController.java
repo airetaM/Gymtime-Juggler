@@ -21,6 +21,7 @@ public class LoginController {
     @FXML
     protected void onConfirmButtonClick() {
         String name = logName.getText();
+        String profileName = logName.getText();
         String pw = logPW.getText();
         boolean allLoginChecks = true;
         if ( name.isEmpty() ) {
@@ -32,6 +33,7 @@ public class LoginController {
             allLoginChecks = false;
         }
         if ( allLoginChecks ) {
+            CalendarModel.setProfileName(profileName);
             new ConfirmLogin(name, pw);
         }
     }
@@ -67,6 +69,11 @@ public class LoginController {
             allNewProfileChecks = false;
         }
 
+        else if (profileName.length()<4 || profileName.length()>15) {
+            showErrorWindow("Ungültige Eingabe", "Dein Profilname darf nicht kürzer als 4 und nicht länger als 15 Zeichen sein!");
+            allNewProfileChecks = false;
+        }
+
         else if (newPW.isEmpty()) {
             showErrorWindow("Ungültige Eingabe", "Du hast kein Passwort eingegeben!");
             allNewProfileChecks = false;
@@ -87,7 +94,13 @@ public class LoginController {
             allNewProfileChecks = false;
         }
 
+        else if (JSONHandler.checkProfileName(profileName)) {
+            showErrorWindow("Ungültige Eingabe", "Dieser Profilname existiert bereits!");
+            allNewProfileChecks = false;
+        }
+
     if (allNewProfileChecks) {
+        CalendarModel.setProfileName(profileName);
         new PasswordHasher.hashPassword(profileName, newPW);
     }
 

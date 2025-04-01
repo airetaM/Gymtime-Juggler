@@ -69,4 +69,22 @@ public class JSONHandler {
         }
         return false;
     }
+    public static boolean checkProfileName(String profileName) {
+        File file = new File(FILE_PATH);
+        if (file.exists()) {
+            try (FileReader reader = new FileReader(file)) {
+                jsonArray = new JSONArray(new JSONTokener(reader));
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    org.json.JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    if (jsonObject.getString(USER).equals(profileName)) {
+                        return true;
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
 }

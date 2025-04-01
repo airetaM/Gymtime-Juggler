@@ -16,7 +16,6 @@ public class ConfirmLogin {
             System.out.println("Profil " + name + " wird geladen.");
             try {
                 App.changeSceneToMainMenu("mainMenu.fxml", name);
-
             } catch (Exception e) {
                 throw new RuntimeException(e);
         }
