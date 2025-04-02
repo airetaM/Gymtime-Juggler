@@ -1,8 +1,17 @@
 package com.brh.aufbauprojekt.demo2;
 
+import java.time.LocalDate;
+
 public class CalendarModel {
     public static String profileName;
     public static int currentWeekNumber;
+    public static int currentDay;
+    public static int currentMonth;
+    public static int currentYear;
+    public static int chosenWeekNumber;
+    public static int chosenDay;
+    public static int chosenMonth;
+    public static int chosenYear;
 
     public static int getCurrentWeekNumber() {
         return currentWeekNumber;
@@ -35,10 +44,6 @@ public class CalendarModel {
     public static void setCurrentYear(int currentYear) {
         CalendarModel.currentYear = currentYear;
     }
-
-    public static int currentDay;
-    public static int currentMonth;
-    public static int currentYear;
 
     public static String getProfileName() {
         return profileName;
@@ -80,12 +85,15 @@ public class CalendarModel {
         CalendarModel.chosenYear = chosenYear;
     }
 
-    public static int chosenWeekNumber;
-    public static int chosenDay;
-    public static int chosenMonth;
-    public static int chosenYear;
+    public static LocalDate chosenDate;
 
+    public static LocalDate getChosenDate() {
+        return chosenDate;
+    }
 
+    public static void setChosenDate(LocalDate chosenDate) {
+        CalendarModel.chosenDate = chosenDate;
+    }
 
 }
 

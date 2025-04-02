@@ -83,7 +83,7 @@
       <items>
         <AnchorPane prefHeight="751.0" prefWidth="184.0">
           <children>
-            <Label fx:id="profileLabel" layoutX="10.0" layoutY="27.0" minWidth="60.0" prefHeight="35.0" prefWidth="200.0" style="&#10;" textAlignment="CENTER" textFill="#7e0404" wrapText="false">
+            <Label fx:id="profileLabel" alignment="CENTER" layoutX="10.0" layoutY="27.0" minWidth="60.0" prefHeight="35.0" prefWidth="200.0" style="&#10;" textAlignment="CENTER" textFill="#7e0404" wrapText="false">
               <font>
                 <Font size="22.0" fx:id="x1" />
               </font>
@@ -94,7 +94,7 @@
                   <Separator layoutX="18.0" layoutY="154.0" prefWidth="200.0" />
                   <Separator layoutX="18.0" layoutY="570.0" prefHeight="16.0" prefWidth="200.0" />
                   <Separator layoutX="18.0" layoutY="422.0" prefWidth="200.0" />
-                  <Button defaultButton="true" layoutX="155.0" layoutY="360.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="32.0" text="«" textAlignment="CENTER">
+                  <Button defaultButton="true" layoutX="155.0" layoutY="360.0" mnemonicParsing="false" onAction="#onBackArrowClick" prefHeight="42.0" prefWidth="32.0" text="«" textAlignment="CENTER">
                      <font>
                         <Font size="26.0" />
                      </font>
@@ -109,7 +109,7 @@
                         <Font name="Comic Sans MS Bold Italic" size="12.0" />
                      </font>
                   </Label>
-                  <Label contentDisplay="CENTER" layoutX="14.0" prefHeight="27.0" prefWidth="112.0" text="Profil" textAlignment="CENTER">
+                  <Label contentDisplay="CENTER" layoutX="14.0" prefHeight="27.0" prefWidth="49.0" text="Profil" textAlignment="CENTER">
                      <font>
                         <Font name="Comic Sans MS Bold Italic" size="12.0" />
                      </font>
@@ -300,17 +300,17 @@
                               </Label>
                            </children>
                         </GridPane>
-                        <Label fx:id="yearField" contentDisplay="CENTER" layoutX="14.0" layoutY="59.0" prefHeight="35.0" prefWidth="174.0" textAlignment="CENTER">
+                        <Label fx:id="yearField" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="102.0" layoutY="49.0" prefHeight="35.0" prefWidth="49.0" textAlignment="CENTER">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="monthField" contentDisplay="CENTER" layoutX="14.0" layoutY="33.0" prefHeight="34.0" prefWidth="174.0" textAlignment="CENTER">
+                        <Label fx:id="monthField" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="49.0" prefHeight="34.0" prefWidth="103.0" textAlignment="CENTER">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="18.0" />
                            </font>
                         </Label>
-                        <Button defaultButton="true" layoutX="1225.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="24.0" text="»" textAlignment="CENTER">
+                        <Button defaultButton="true" layoutX="1225.0" layoutY="360.0" mnemonicParsing="false" onAction="#onForwardArrowClick" prefHeight="26.0" prefWidth="24.0" text="»" textAlignment="CENTER">
                            <font>
                               <Font size="26.0" />
                            </font>
