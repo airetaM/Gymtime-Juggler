@@ -1,10 +1,14 @@
 package com.brh.aufbauprojekt.demo2;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.DatePicker;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.WeekFields;
@@ -14,6 +18,17 @@ import java.util.Locale;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import javax.swing.*;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+
 public class MainController {
     @FXML
     private TextArea textBox1;
@@ -200,12 +215,94 @@ public class MainController {
         yearField.setText("" + selectedDate.getYear());
         checkStyles(day);
         setDayNumbers(selectedDate, day);
+        fillTextBoxes();
     }
 
-    @FXML
-    protected void onSaveWeekClick() {
-        System.out.println("woche gespeichert");
+    private void fillTextBoxes() {
+        // First clear all textboxes
+        for (int i = 1; i <= 42; i++) {
+            try {
+                TextArea textBox = (TextArea) getClass().getDeclaredField("textBox" + i).get(this);
+                textBox.clear();
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        String profileName = CalendarModel.getProfileName();
+        int year = CalendarModel.getChosenYear();
+        int weekNumber = CalendarModel.getChosenWeekNumber();
+        File file = new File(profileName + "_" + year + "_" + weekNumber + ".json");
+
+        if (file.exists()) {
+            try (FileReader reader = new FileReader(file)) {
+                JSONObject jsonObject = new JSONObject(new JSONTokener(reader));
+                JSONArray textBoxes = jsonObject.getJSONArray("textBoxes");
+
+                for (int i = 0; i < textBoxes.length(); i++) {
+                    JSONObject textBoxObject = textBoxes.getJSONObject(i);
+                    String textBoxID = textBoxObject.getString("textBoxID");
+                    String text = textBoxObject.getString("text");
+
+                    TextArea textBox = (TextArea) getClass().getDeclaredField(textBoxID).get(this);
+                    textBox.setText(text);
+                }
+            } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
+
+    @FXML
+    protected void onSaveWeekClick() throws NoSuchFieldException, IllegalAccessException {
+        JSONObject jsonObject = new JSONObject();
+        int chosenYear = CalendarModel.getChosenYear();
+        int chosenWeekNumber = CalendarModel.getChosenWeekNumber();
+        jsonObject.put("year", chosenYear);
+        jsonObject.put("weekNumber", chosenWeekNumber);
+        ShortLivedWindow(chosenYear, chosenWeekNumber);
+
+        JSONArray jsonArray = new JSONArray();
+
+        for (int i = 0; i < 42; i++) {
+            String textBoxID = "textBox" + (i + 1);
+            try {
+                TextArea textBox = (TextArea) getClass().getDeclaredField(textBoxID).get(this);
+                String text = textBox.getText();
+                JSONObject textBoxObject = new JSONObject();
+                textBoxObject.put("textBoxID", textBoxID);
+                textBoxObject.put("text", text);
+                jsonArray.put(textBoxObject);
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+
+        jsonObject.put("textBoxes", jsonArray);
+
+        try (FileWriter file = new FileWriter(CalendarModel.getProfileName() + "_" + CalendarModel.getChosenYear() + "_" + CalendarModel.getChosenWeekNumber() + ".json")) {
+            file.write(jsonObject.toString(4)); // 4 is the indentation level
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void ShortLivedWindow(int chosenYear, int chosenWeekNumber) {
+        Alert window = new Alert(Alert.AlertType.INFORMATION);
+        window.setTitle("Information");
+        window.setHeaderText(null);
+        window.setContentText( chosenYear + " KW " + chosenWeekNumber + " wurde gespeichert." );
+        window.setResizable(false);
+        window.show();
+
+        Timeline timeline = new Timeline(new KeyFrame(
+                Duration.millis(2000),
+                ae -> window.close()
+        ));
+        timeline.setCycleCount(1);
+        timeline.play();
+    }
+
 
     @FXML
     protected void onCreatePlanClick() {
@@ -227,6 +324,7 @@ public class MainController {
         CalendarModel.setChosenWeekNumber(selectedWeek);
         CalendarModel.setChosenDate(selectedDate);
         updateLabels(selectedDate);
+        DatePicker.setValue(selectedDate);
     }
     @FXML
     protected void onForwardArrowClick() {
@@ -242,6 +340,7 @@ public class MainController {
         CalendarModel.setChosenWeekNumber(selectedWeek);
         CalendarModel.setChosenDate(selectedDate);
         updateLabels(selectedDate);
+        DatePicker.setValue(selectedDate);
     }
     @FXML
     protected void onEnteredDate() {

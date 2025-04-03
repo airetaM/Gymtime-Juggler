@@ -49,9 +49,7 @@ public class CalendarModel {
         return profileName;
     }
 
-    public static void setProfileName(String profileName) {
-        CalendarModel.profileName = profileName;
-    }
+    public static void setProfileName(String profileName) { CalendarModel.profileName = profileName; }
 
     public static int getChosenWeekNumber() {
         return chosenWeekNumber;
