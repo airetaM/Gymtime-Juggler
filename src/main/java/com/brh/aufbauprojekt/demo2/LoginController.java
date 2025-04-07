@@ -53,6 +53,7 @@ public class LoginController {
     public void showWindow(String title, String message, Alert window){
         window.setTitle(title);
         window.setHeaderText(null);
+        window.setResizable(false);
         window.setContentText( message );
         window.showAndWait();
     }

@@ -17,7 +17,8 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="25.0" prefWidth="454.0">
          <children>
-            <Label prefHeight="30.0" prefWidth="66.0" text="Profilname:">
+            <HBox prefHeight="26.0" prefWidth="16.0" />
+            <Label prefHeight="25.0" prefWidth="88.0" text="Profilname:">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -25,16 +26,19 @@
                   <Insets />
                </HBox.margin>
             </Label>
-            <TextField fx:id="profileNameTF">
+            <HBox prefHeight="26.0" prefWidth="36.0" />
+            <TextField fx:id="profileNameTF" prefHeight="26.0" prefWidth="128.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
             </TextField>
+            <HBox prefHeight="26.0" prefWidth="8.0" />
          </children>
       </HBox>
    <HBox alignment="CENTER" prefHeight="25.0" prefWidth="454.0">
       <children>
-         <Label prefHeight="25.0" prefWidth="110.0" text="Neues Passwort:">
+            <HBox prefHeight="26.0" prefWidth="5.0" />
+         <Label prefHeight="25.0" prefWidth="122.0" text="Neues Passwort:">
             <opaqueInsets>
                <Insets />
             </opaqueInsets>
@@ -42,7 +46,8 @@
                <Insets />
             </HBox.margin>
          </Label>
-         <PasswordField fx:id="passwordTF" prefHeight="26.0" prefWidth="106.0">
+            <HBox prefHeight="26.0" prefWidth="31.0" />
+         <PasswordField fx:id="passwordTF" prefHeight="26.0" prefWidth="101.0">
             <HBox.margin>
                <Insets />
             </HBox.margin>
@@ -51,7 +56,8 @@
    </HBox>
    <HBox alignment="CENTER" prefHeight="25.0" prefWidth="454.0">
       <children>
-         <Label prefHeight="25.0" prefWidth="110.0" text="Passwort bestätigen:">
+            <HBox prefHeight="26.0" prefWidth="40.0" />
+         <Label prefHeight="25.0" prefWidth="154.0" text="Passwort bestätigen:">
             <opaqueInsets>
                <Insets />
             </opaqueInsets>
@@ -59,20 +65,21 @@
                <Insets />
             </HBox.margin>
          </Label>
-         <PasswordField fx:id="cpasswordTF" prefHeight="26.0" prefWidth="106.0">
+         <PasswordField fx:id="cpasswordTF" prefHeight="25.0" prefWidth="99.0">
             <HBox.margin>
                <Insets />
             </HBox.margin>
          </PasswordField>
+            <HBox prefHeight="25.0" prefWidth="36.0" />
       </children>
    </HBox>
-      <HBox alignment="CENTER" prefHeight="35.0" prefWidth="454.0">
+      <HBox alignment="CENTER" prefHeight="55.0" prefWidth="454.0">
          <children>
             <Button mnemonicParsing="false" onAction="#onNewProfileConfirmClick" text="Bestätigen" />
          </children>
 
       </HBox>
-   <HBox alignment="CENTER" prefHeight="35.0" prefWidth="454.0">
+   <HBox alignment="CENTER" prefHeight="62.0" prefWidth="454.0">
       <children>
          <Button mnemonicParsing="false" onAction="#onBackToLoginClick" text="Zurück" />
       </children>

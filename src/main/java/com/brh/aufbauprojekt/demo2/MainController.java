@@ -1,12 +1,18 @@
 package com.brh.aufbauprojekt.demo2;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.DatePicker;
 
-import java.awt.event.ActionEvent;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.time.LocalTime;
@@ -24,6 +30,7 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicBorders;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -147,8 +154,6 @@ public class MainController {
     private DateTimeFormatter DateTimeFormatter;
 
     private DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-
-
     @FXML
     private Label dayID1;
     @FXML
@@ -185,6 +190,8 @@ public class MainController {
             int currentDay = LocalDate.now().getDayOfMonth();
             int currentMonth = selectedDate.getMonthValue();
             int currentYear = selectedDate.getYear();
+            int weekDay = selectedDate.get(weekFields.dayOfWeek());
+            CalendarModel.setWeekDay(weekDay);
             CalendarModel.setCurrentWeekNumber(currentWeekNumber);
             CalendarModel.setCurrentDay(currentDay);
             CalendarModel.setCurrentMonth(currentMonth);
@@ -303,11 +310,21 @@ public class MainController {
         timeline.play();
     }
 
-
     @FXML
-    protected void onCreatePlanClick() {
-        System.out.println("plan erstellt");
+    protected void onCreatePlanClick(ActionEvent event) throws IOException {
+        showNewWindow("NewPlan.fxml");
     }
+
+        public static void showNewWindow(String fxml) throws IOException {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            stage.setTitle("Neuer Trainingsplan");
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+        }
 
     LocalDate date = LocalDate.now();
     @FXML
@@ -378,21 +395,22 @@ public class MainController {
 
     private void checkStyles(int day) {
         if (CalendarModel.getCurrentYear() == CalendarModel.getChosenYear() && CalendarModel.getChosenWeekNumber() == CalendarModel.getCurrentWeekNumber() ) {
-               if (day == CalendarModel.getCurrentDay() + 1 || isBlack) {
+               if (day == CalendarModel.getCurrentDay() || day + 6 ==CalendarModel.getCurrentDay() || day + 13 ==CalendarModel.getCurrentDay() || isBlack) {
                     isBlack = false;
+
                     String numberStyle = "-fx-font-size:22; -fx-text-fill: red; -fx-font-weight: bold; -fx-font-family: 'Comic Sans MS', sans-serif;";
                     String boxStyle = "-fx-border-width: 5px; -fx-border-color: red; -fx-background-color: #ffe6e6;";
-                    String blackNumberStyle = "-fx-font-size:18; -fx-text-fill: black; -fx-font-weight: normal; -fx-font-family: 'Comic Sans MS', sans-serif;";
-                    String blackBoxStyle = "-fx-border-width: 2px; -fx-border-color: black; -fx-background-color: #acfcef;";
+                    String blackNumberStyle = "-fx-font-size:18; -fx-text-fill: navy; -fx-font-weight: normal; -fx-font-family: 'Comic Sans MS', sans-serif;";
+                    String blackBoxStyle = "-fx-border-width: 2px; -fx-border-color: navy; -fx-background-color: #acfcef;";
                     day = CalendarModel.getCurrentDay() + 1;
                     setStyles(day, numberStyle, boxStyle, blackNumberStyle, blackBoxStyle);
               }
         } else {
             isBlack = true;
-            String numberStyle = "-fx-font-size:18; -fx-text-fill: black; -fx-font-weight: normal; -fx-font-family: 'Comic Sans MS', sans-serif;";
-            String boxStyle = "-fx-border-width: 2px; -fx-border-color: black; -fx-background-color: #acfcef;";
-            String blackNumberStyle = "-fx-font-size:18; -fx-text-fill: black; -fx-font-weight: normal; -fx-font-family: 'Comic Sans MS', sans-serif;";
-            String blackBoxStyle = "-fx-border-width: 2px; -fx-border-color: black; -fx-background-color: #acfcef;";
+            String numberStyle = "-fx-font-size:18; -fx-text-fill: navy; -fx-font-weight: normal; -fx-font-family: 'Comic Sans MS', sans-serif;";
+            String boxStyle = "-fx-border-width: 2px; -fx-border-color: navy; -fx-background-color: #acfcef;";
+            String blackNumberStyle = "-fx-font-size:18; -fx-text-fill: navy; -fx-font-weight: normal; -fx-font-family: 'Comic Sans MS', sans-serif;";
+            String blackBoxStyle = "-fx-border-width: 2px; -fx-border-color: navy; -fx-background-color: #acfcef;";
             setStyles(day, numberStyle, boxStyle, blackNumberStyle, blackBoxStyle);
         }
     }
@@ -400,7 +418,7 @@ public class MainController {
         Label[] dayNumbers = {dayNumber1, dayNumber2, dayNumber3, dayNumber4, dayNumber5, dayNumber6, dayNumber7};
         Label[] dayIDs = {dayID1, dayID2, dayID3, dayID4, dayID5, dayID6, dayID7};
         for (int i = 0; i < dayNumbers.length; i++) {
-            if (day == i + 1) {
+            if (day == i + 1 || day-7 == i + 1 || day-14 == i + 1 || day-21 == i + 1 || day-28 == i + 1) {
                 dayNumbers[i].setStyle(numberStyle);
                 dayIDs[i].setStyle(numberStyle + boxStyle);
             } else {

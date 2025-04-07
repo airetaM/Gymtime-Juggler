@@ -1,14 +1,197 @@
-
-
+.fixed-divider .split-pane-divider {
+    -fx-background-color: transparent; /* Make the divider invisible */
+    -fx-padding: 0; /* Remove padding */
+    -fx-border-width: 0; /* Remove border */
+    -fx-cursor: default; /* Change cursor to default */
+    -fx-background-insets: 0; /* Remove background insets */
+    -fx-background-color: rgba(154, 242, 255, 1);
+    -fx-border-color: rgba(0, 241, 255, 0.75);
+}
 
 .button {
     -fx-text-fill: navy;
+    -fx-background-color: rgba(34, 218, 204, 0.98);
+    -fx-border-color: rgba(31, 255, 157, 0.88);
+    -fx-border-width: 1px;
+    -fx-border-radius: 25px;
+    -fx-background-radius: 25px;
     -fx-font-size: 14px;
-    -fx-background-image: url("bg2.jpg");
-    -fx-background-radius: 30px;
+    -fx-padding: 10px 20px;
+    -fx-margin: 15px;
+    -fx-cursor: hand;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.9), 5, 0.3, 0, 1);
+    -fx-background-insets: 0;
+    -fx-effect: dropshadow(gaussian, rgba(74, 74, 255, 0.75), 1, 0.7, 0, 1);
 }
-label. {
-    -fx-background-image: url("bg3.jpg");
+
+.button:hover {
+    -fx-background-color: rgba(111, 255, 248, 0.98);
+    -fx-text-fill: navy;
+    -fx-border-color: rgba(100, 255, 217, 0.98);
+    -fx-border-width: 5px;
+    -fx-border-radius: 25px;
+    -fx-background-radius: 25px;
+    -fx-font-size: 13px;
+    -fx-padding: 10px 20px;
+    -fx-margin: 15px;
+    -fx-cursor: hand;
+        -fx-effect: dropshadow(gaussian, rgba(74, 74, 255, 0.75), 8, 0.7, 0, 1);
+}
+
+.button:pressed {
+    -fx-background-color: rgba(255, 255, 248, 0.98);
+    -fx-text-fill: navy;
+    -fx-border-color: rgba(253, 255, 217, 0.98);
+    -fx-border-width: 10px;
+    -fx-border-radius: 25px;
+    -fx-background-radius: 25px;
+    -fx-font-size: 12px;
+    -fx-padding: 10px 20px;
+    -fx-margin: 10px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(74, 74, 255, 0.75), 25, 0.7, 0, 1);
+}
+
+.button:focused {
+    -fx-background-color: rgba(175, 255, 248, 0.98);
+    -fx-text-fill: navy;
+    -fx-border-color: rgba(180, 255, 217, 0.98);
+    -fx-border-width: 7px;
+    -fx-border-radius: 25px;
+    -fx-background-radius: 25px;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+
+    -fx-effect: dropshadow(gaussian, rgba(74, 74, 255, 0.75), 15, 0.7, 0, 1);
+    }
+
+.arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
+    -fx-font-size: 66px;
+}
+
+.arrow-button:pressed {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
+    -fx-font-size: 70px;
+    -fx-effect: dropshadow(gaussian, rgba(74, 74, 255, 0.75), 25, 0.7, 0, 1);
+}
+
+.arrow-button:focused {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
+    -fx-font-size: 67px;
+    -fx-text-fill: navy;
+    -fx-effect: dropshadow(gaussian, rgba(74, 74, 255, 0.88), 15, 0.7, 0, 1);
+}
+
+.arrow-button:hover {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
+    -fx-font-size: 66px;
+    -fx-text-fill: rgba(126, 126, 255, 0.82);
+    -fx-effect: dropshadow(gaussian, rgba(74, 74, 255, 0.88), 6, 0.7, 0, 1);
 }
 
 
+DatePicker {
+    -fx-background-color: lightblue;
+    -fx-border-color: rgba(74, 74, 255, 1);
+    -fx-font-size: 15px;
+    -fx-cursor: hand;
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(74, 74, 255, 0.88), 6, 0.7, 0, 1);
+}
+DatePicker:hover {
+    -fx-effect: dropshadow(gaussian, rgba(74, 74, 255, 0.88), 12, 0.7, 0, 1);
+    }
+DatePicker:focused {
+    -fx-effect: dropshadow(gaussian, rgba(74, 74, 255, 0.88), 15, 0.7, 0, 1);
+    }
+DatePicker:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(74, 74, 255, 0.88), 25, 0.7, 0, 1);
+    }
+.label {
+    -fx-font-size: 15px;
+    -fx-text-fill: navy;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0.3, 0, 1);
+}
+
+.title {
+    -fx-font-size: 23px;
+    -fx-text-fill: rgba(0, 255, 184, 1);
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(74, 74, 255, 0.88), 20, 0.7, 0, 1);
+    -fx-background-color: rgba(0, 241, 255, 0.32);
+    -fx-border-color: rgba(0, 241, 255, 0.75);
+    -fx-border-width: 1px;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-padding: 3px 9px;
+}
+
+.timefields {
+    -fx-font-size: 22px;
+    -fx-text-fill: red;
+}
+
+VBox {
+    -fx-background-color: rgba(211, 249, 255, 1);
+}
+
+MenuBar{
+   -fx-background-color: rgba(154, 242, 255, 1);
+    -fx-border-color: rgba(0, 241, 255, 0.75);
+    -fx-border-width: 3px;
+}
+ScrollPane {
+    -fx-background-color: rgba(154, 242, 255, 1);
+    -fx-border-color: rgba(223, 255, 255, 1);
+    -fx-border-width: 1px;
+}
+TextArea {
+    -fx-background-color: rgba(154, 242, 255, 1);
+
+}
+TextArea:focused {
+        -fx-border-color: rgba(0, 144, 255, 0.1);
+        -fx-border-width: 2px;
+}
+TextArea:hover {
+        -fx-border-color: rgba(216, 234, 253, 1);
+        -fx-border-width: 5px;
+}
+TextArea:pressed {
+        -fx-border-color: rgba(223, 255, 255, 0.5);
+        -fx-border-width: 8px;
+}
+
+AnchorPane {
+    -fx-background-color: rgba(211, 249, 255, 1);
+    -fx-border-color: rgba(223, 255, 255, 1);
+    -fx-border-width: 1px;
+}
+GridPane {
+    -fx-background-color: rgba(211, 249, 255, 1);
+    -fx-border-color: rgba(223, 255, 255, 1);
+    -fx-border-width: 5px;
+}

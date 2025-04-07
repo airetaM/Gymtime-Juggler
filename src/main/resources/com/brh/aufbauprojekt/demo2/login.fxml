@@ -20,7 +20,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="38.0" prefWidth="600.0">
          <children>
-            <Label prefHeight="30.0" prefWidth="66.0" text="Name:">
+            <Label prefHeight="30.0" prefWidth="74.0" text="Name:">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -28,7 +28,7 @@
                   <Insets />
                </HBox.margin>
             </Label>
-            <TextField fx:id="logName">
+            <TextField fx:id="logName" prefHeight="26.0" prefWidth="141.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
@@ -37,7 +37,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="38.0" prefWidth="600.0">
          <children>
-            <Label prefHeight="30.0" prefWidth="66.0" text="Passwort:">
+            <Label prefHeight="30.0" prefWidth="75.0" text="Passwort:">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -45,7 +45,7 @@
                   <Insets />
                </HBox.margin>
             </Label>
-            <PasswordField fx:id="logPW">
+            <PasswordField fx:id="logPW" prefHeight="25.0" prefWidth="141.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
@@ -62,7 +62,7 @@
             <Line endX="100.0" startX="-100.0" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="59.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="89.0" prefWidth="600.0">
          <children>
             <Button mnemonicParsing="false" onAction="#onNewProfileButtonClick" text="Neues Profil erstellen">
                <HBox.margin>

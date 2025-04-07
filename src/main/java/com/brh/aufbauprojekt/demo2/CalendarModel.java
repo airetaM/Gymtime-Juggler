@@ -13,6 +13,16 @@ public class CalendarModel {
     public static int chosenMonth;
     public static int chosenYear;
 
+    public static int getWeekDay() {
+        return weekDay;
+    }
+
+    public static void setWeekDay(int weekDay) {
+        CalendarModel.weekDay = weekDay;
+    }
+
+    public static int weekDay;
+
     public static int getCurrentWeekNumber() {
         return currentWeekNumber;
     }

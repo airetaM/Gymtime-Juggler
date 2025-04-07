@@ -23,6 +23,7 @@ public class ConfirmLogin {
             Alert window = new Alert(Alert.AlertType.ERROR);
             window.setTitle("Ungültige Eingabe");
             window.setHeaderText(null);
+            window.setResizable(false);
             window.setContentText( "Profilname oder Passwort falsch" );
             window.showAndWait();
         }
