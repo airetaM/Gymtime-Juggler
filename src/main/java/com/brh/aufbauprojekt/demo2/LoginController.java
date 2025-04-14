@@ -19,7 +19,7 @@ public class LoginController {
     private TextField cpasswordTF;
 
     @FXML
-    protected void onConfirmButtonClick() {
+    protected void onConfirmButtonClick() throws Exception {
         String name = logName.getText();
         String profileName = logName.getText();
         String pw = logPW.getText();

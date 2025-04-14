@@ -12,8 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.DatePicker;
 
-import java.awt.*;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -29,8 +27,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import javax.swing.*;
-import javax.swing.plaf.basic.BasicBorders;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;

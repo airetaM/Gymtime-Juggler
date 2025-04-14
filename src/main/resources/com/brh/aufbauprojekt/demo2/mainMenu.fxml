@@ -88,7 +88,7 @@
               </font>
             </Label>
                   <DatePicker fx:id="DatePicker" layoutX="14.0" layoutY="82.0" onAction="#onEnteredDate" prefHeight="42.0" prefWidth="174.0" showWeekNumbers="true" />
-                  <Button layoutX="4.0" layoutY="618.0" mnemonicParsing="false" onAction="#onCreatePlanClick" prefHeight="70.0" prefWidth="209.0" text="Trainingsplan erstellen" />
+                  <Button layoutX="4.0" layoutY="618.0" mnemonicParsing="false" onAction="#onCreatePlanClick" prefHeight="70.0" prefWidth="209.0" styleClass="trainingbutton" text="Trainingsplan erstellen" />
                   <Button layoutX="10.0" layoutY="499.0" mnemonicParsing="false" onAction="#onSaveWeekClick" prefHeight="70.0" prefWidth="200.0" text="Woche speichern" />
                   <Separator layoutX="18.0" layoutY="154.0" prefWidth="200.0" />
                   <Separator layoutX="18.0" layoutY="584.0" prefHeight="16.0" prefWidth="200.0" />
@@ -116,9 +116,9 @@
         </AnchorPane>
         <ScrollPane prefHeight="816.0" prefWidth="1250.0">
           <content>
-            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="560.0" prefWidth="1000.0">
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="880.0" prefWidth="1500.0">
               <children>
-                <Label alignment="TOP_CENTER" layoutX="490.0" layoutY="6.0" prefHeight="42.0" prefWidth="245.0" style="&#10;" styleClass="title" text="Gymtime-Juggler" textAlignment="CENTER" wrapText="false">
+                <Label alignment="TOP_CENTER" layoutX="490.0" layoutY="12.0" prefHeight="42.0" prefWidth="245.0" style="&#10;" styleClass="title" text="Gymtime-Juggler" textAlignment="CENTER" wrapText="false">
                            <font>
                               <Font size="28.0" />
                            </font></Label>
@@ -193,7 +193,7 @@
                               </Label>
                               <Label fx:id="dayID1" alignment="CENTER" contentDisplay="CENTER" prefHeight="145.0" prefWidth="264.0" text="Montag" textAlignment="CENTER" GridPane.columnIndex="1">
                                  <font>
-                                    <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                                    <Font name="Comic Sans MS" size="16.0" />
                                  </font>
                               </Label>
                               <Label fx:id="dayID2" alignment="CENTER" contentDisplay="CENTER" prefHeight="145.0" prefWidth="264.0" text="Dienstag" textAlignment="CENTER" GridPane.columnIndex="2">
@@ -298,12 +298,12 @@
                               </Label>
                            </children>
                         </GridPane>
-                        <Label fx:id="yearField" alignment="BOTTOM_RIGHT" contentDisplay="CENTER" layoutX="9.0" layoutY="48.0" prefHeight="34.0" prefWidth="50.0" styleClass="timefields" textAlignment="CENTER">
+                        <Label fx:id="yearField" contentDisplay="CENTER" layoutX="9.0" layoutY="68.0" prefHeight="34.0" prefWidth="50.0" styleClass="timefields" textAlignment="CENTER">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="monthField" graphicTextGap="3.0" layoutX="65.0" layoutY="50.0" prefHeight="34.0" prefWidth="118.0" styleClass="timefields" textAlignment="CENTER">
+                        <Label fx:id="monthField" graphicTextGap="3.0" layoutX="65.0" layoutY="68.0" prefHeight="34.0" prefWidth="118.0" styleClass="timefields" textAlignment="CENTER">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="18.0" />
                            </font>
@@ -316,43 +316,46 @@
                               <Font size="26.0" />
                            </font>
                         </Button>
-                        <Label fx:id="dayNumber1" alignment="CENTER" contentDisplay="CENTER" layoutX="214.0" layoutY="42.0" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
+                        <Label fx:id="dayNumber1" alignment="CENTER" contentDisplay="BOTTOM" layoutX="214.0" layoutY="60.0" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="dayNumber2" alignment="CENTER" contentDisplay="CENTER" layoutX="364.0" layoutY="42.0" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
+                        <Label fx:id="dayNumber2" alignment="CENTER" contentDisplay="BOTTOM" layoutX="364.0" layoutY="60.0" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="dayNumber3" alignment="CENTER" contentDisplay="CENTER" layoutX="512.0" layoutY="42.0" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
+                        <Label fx:id="dayNumber3" alignment="CENTER" contentDisplay="BOTTOM" layoutX="512.0" layoutY="60.0" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="dayNumber4" alignment="CENTER" contentDisplay="CENTER" layoutX="662.0" layoutY="42.0" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
+                        <Label fx:id="dayNumber4" alignment="CENTER" contentDisplay="BOTTOM" layoutX="662.0" layoutY="60.0" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="dayNumber5" alignment="CENTER" contentDisplay="CENTER" layoutX="812.0" layoutY="42.0" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
+                        <Label fx:id="dayNumber5" alignment="CENTER" contentDisplay="BOTTOM" layoutX="812.0" layoutY="60.0" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="dayNumber6" alignment="CENTER" contentDisplay="CENTER" layoutX="963.0" layoutY="42.0" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
+                        <Label fx:id="dayNumber6" alignment="CENTER" contentDisplay="BOTTOM" layoutX="963.0" layoutY="60.0" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="dayNumber7" alignment="CENTER" contentDisplay="CENTER" layoutX="1100.0" layoutY="42.0" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
+                        <Label fx:id="dayNumber7" alignment="CENTER" contentDisplay="BOTTOM" layoutX="1100.0" layoutY="60.0" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="16.0" />
                            </font>
                         </Label>
 
               </children>
+                     <padding>
+                        <Insets bottom="320.0" />
+                     </padding>
             </AnchorPane>
           </content>
         </ScrollPane>

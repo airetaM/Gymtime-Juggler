@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -41,7 +40,7 @@ public class App extends Application {
         stage.setResizable(true);
         stage.setTitle(name + "'s Gymtime Juggler");
         stage.getScene().setRoot(pane);
-        stage.setMaximized(true); // Enable fullscreen mode
+        stage.setMaximized(true);
     }
 
     public static void main(String[] args) {
